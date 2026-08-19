@@ -6,7 +6,7 @@ No backend, no build step, no dependencies. Just HTML, CSS, and vanilla JS.
 
 ## How it works
 
-- `questions.js` holds a bank of 100 free-response questions across 8 categories: Pentateuch, Historical Books, Wisdom & Poetry, Prophets, Gospels, Acts & Early Church, Epistles, and Revelation & Famous Verses.
+- `questions.js` holds a bank of 102 free-response questions across 8 categories: Pentateuch, Historical Books, Wisdom & Poetry, Prophets, Gospels, Acts & Early Church, Epistles, and Revelation & Famous Verses.
 - When you start a quiz, questions are sampled **proportionally across all categories** (not purely at random), so even a 10-question quiz gives a meaningful category breakdown rather than random luck.
 - **Grading is self-graded, like a flashcard.** You type your answer, click "Check Answer" to reveal the accepted answer (plus any accepted alternate phrasings), and then mark yourself right or wrong. This avoids the problem of a computer trying to auto-parse every valid way to phrase something like "1 Kings and 2 Kings" &mdash; you're the judge.
 - Your last result is saved in your browser's `localStorage` so it survives a refresh. This is per-device/per-browser only &mdash; there are no accounts and nothing is synced anywhere.

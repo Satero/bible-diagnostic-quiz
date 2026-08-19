@@ -1,5 +1,5 @@
 // Bible Diagnostic Quiz — question bank
-// 100 free-response questions across 8 categories: book/chapter references,
+// 102 free-response questions across 8 categories: book/chapter references,
 // fill-in-the-blank recall, and famous-verse citations. Self-graded — the app
 // reveals the accepted answer (and any accepted alternate phrasings) and the
 // user marks their own typed answer correct or incorrect.
@@ -24,7 +24,7 @@ const QUESTIONS = [
   { id: 12, category: "Pentateuch", prompt: "The Passover meal instituted in Exodus 12 commemorates what event?", answer: "The final plague (death of the firstborn) and Israel's deliverance from Egypt", accepted: ["The tenth plague", "Death of the firstborn", "Israel's deliverance from Egypt"] },
 
   // ---------------- Historical Books (Joshua–Esther) ----------------
-  { id: 13, category: "Historical Books", prompt: "Who led Israel across the Jordan River into the Promised Land after Moses' death?", answer: "Joshua" },
+  { id: 13, category: "Historical Books", prompt: "In Joshua 6, the Israelites conquer what fortified city after marching around it for seven days and blowing trumpets?", answer: "Jericho" },
   { id: 14, category: "Historical Books", prompt: "The book of Judges describes a repeating cycle of Israel's sin, oppression, crying out to God, and ___ by a judge.", answer: "Deliverance", accepted: ["Rescue"] },
   { id: 15, category: "Historical Books", prompt: "Ruth, a Moabite widow, became an ancestor of which future king of Israel?", answer: "David" },
   { id: 16, category: "Historical Books", prompt: "Who was Israel's first king, anointed by the prophet Samuel?", answer: "Saul" },
@@ -63,8 +63,8 @@ const QUESTIONS = [
   { id: 45, category: "Prophets", prompt: "Amos, prophesying to the northern kingdom, placed strong emphasis on what theme?", answer: "Social justice/righteousness", accepted: ["Justice"] },
   { id: 46, category: "Prophets", prompt: "Jonah tried to flee from God's call to preach to which city?", answer: "Nineveh" },
   { id: 47, category: "Prophets", prompt: "Micah 6:8 — 'He has told you, O man, what is good... to do justice, to love kindness, and to ___.'", answer: "Walk humbly with your God", accepted: ["Walk humbly"] },
-  { id: 48, category: "Prophets", prompt: "Much of Habakkuk takes the form of a dialogue or complaint between the prophet and ___.", answer: "God" },
-  { id: 49, category: "Prophets", prompt: "Malachi, the last book of the Old Testament, ends anticipating a coming messenger before 'the day of the ___.'", answer: "LORD" },
+  { id: 48, category: "Prophets", prompt: "Habakkuk 2:4 states that 'the righteous shall live by his ___' — a line later quoted three times in the New Testament (Romans, Galatians, Hebrews).", answer: "Faith" },
+  { id: 49, category: "Prophets", prompt: "Malachi 3:8 accuses the people of robbing God by failing to bring their full ___ and offerings.", answer: "Tithes", accepted: ["Tithe"] },
 
   // ---------------- Gospels (Matthew–John) ----------------
   { id: 50, category: "Gospels", prompt: "Which Gospel was written especially to show Jesus as the fulfillment of Jewish prophecy and the promised Messiah/King?", answer: "Matthew" },
@@ -75,7 +75,7 @@ const QUESTIONS = [
   { id: 55, category: "Gospels", prompt: "Which Gospel focuses heavily on Jesus' divine identity through 'I am' statements and signs, differing from the other three?", answer: "John" },
   { id: 56, category: "Gospels", prompt: "'For God so loved the world, that he gave his only Son...' is found in what book and chapter?", answer: "John 3" },
   { id: 57, category: "Gospels", prompt: "At Jesus' baptism, what descended on him as the Father's voice spoke from heaven?", answer: "The Holy Spirit, like a dove", accepted: ["A dove", "The Spirit"] },
-  { id: 58, category: "Gospels", prompt: "Jesus' first recorded miracle in John's Gospel was turning water into wine at what town?", answer: "Cana" },
+  { id: 58, category: "Gospels", prompt: "Jesus' first recorded miracle — turning water into wine at Cana — is found in what book and chapter?", answer: "John 2" },
   { id: 59, category: "Gospels", prompt: "The Last Supper took place during which Jewish feast?", answer: "Passover" },
   { id: 60, category: "Gospels", prompt: "Who betrayed Jesus to the religious authorities, and for how many pieces of silver?", answer: "Judas Iscariot, thirty pieces of silver", accepted: ["Judas", "30 pieces of silver"] },
   { id: 61, category: "Gospels", prompt: "According to all four Gospels, Jesus rose from the dead on which day after the crucifixion?", answer: "The third day" },
@@ -84,7 +84,7 @@ const QUESTIONS = [
   // ---------------- Acts & Early Church ----------------
   { id: 63, category: "Acts & Early Church", prompt: "The book of Acts, written by the author of Luke's Gospel, narrates the spread of the early church through the power of what?", answer: "The Holy Spirit" },
   { id: 64, category: "Acts & Early Church", prompt: "On the day of Pentecost, what dramatic sign accompanied the Holy Spirit coming upon the apostles?", answer: "Tongues of fire (and the sound of a rushing wind)", accepted: ["Tongues of fire", "Wind and fire"] },
-  { id: 65, category: "Acts & Early Church", prompt: "Who was the first Christian martyr recorded in Acts, stoned for his testimony?", answer: "Stephen" },
+  { id: 65, category: "Acts & Early Church", prompt: "Stephen, the first Christian martyr, is stoned to death in what book and chapter?", answer: "Acts 7" },
   { id: 66, category: "Acts & Early Church", prompt: "Saul of Tarsus was dramatically converted on the road to what city?", answer: "Damascus" },
   { id: 67, category: "Acts & Early Church", prompt: "After his conversion, Saul became known by what missionary name?", answer: "Paul" },
   { id: 68, category: "Acts & Early Church", prompt: "The Jerusalem Council in Acts 15 addressed whether Gentile believers needed to follow Jewish law, especially what practice?", answer: "Circumcision" },
@@ -104,11 +104,13 @@ const QUESTIONS = [
   { id: 80, category: "Epistles", prompt: "'I can do all things through him who strengthens me' is found in what book and chapter?", answer: "Philippians 4" },
   { id: 81, category: "Epistles", prompt: "Colossians describes Christ as 'the image of the invisible God,' in whom all things ___.", answer: "Hold together", accepted: ["Consist"] },
   { id: 82, category: "Epistles", prompt: "1 & 2 Thessalonians deal significantly with the return of Christ and hope for believers who have done what?", answer: "Died", accepted: ["Fallen asleep", "Passed away"] },
-  { id: 83, category: "Epistles", prompt: "1 & 2 Timothy and Titus, the 'Pastoral Epistles,' are primarily concerned with instructions for what?", answer: "Church leadership and sound doctrine", accepted: ["Church leaders"] },
+  { id: 83, category: "Epistles", prompt: "1 Timothy gives Timothy instructions for organizing the church in Ephesus, including qualifications for elders/overseers and what other church office?", answer: "Deacons" },
   { id: 84, category: "Epistles", prompt: "Hebrews argues Jesus is superior to the old covenant by presenting him as the great ___ whose sacrifice fulfills the old system.", answer: "High priest", accepted: ["Priest"] },
   { id: 85, category: "Epistles", prompt: "James emphasizes that genuine faith is shown by what, not just belief?", answer: "Works", accepted: ["Actions", "Deeds"] },
   { id: 86, category: "Epistles", prompt: "1 Peter was written to encourage believers who were facing what?", answer: "Suffering and persecution", accepted: ["Persecution"] },
   { id: 87, category: "Epistles", prompt: "1 John repeatedly emphasizes that God is light, and that God is ___.", answer: "Love" },
+  { id: 101, category: "Epistles", prompt: "2 Timothy, Paul's final letter written from prison shortly before his death, is famous for declaring that all ___ is breathed out by God and profitable for teaching.", answer: "Scripture" },
+  { id: 102, category: "Epistles", prompt: "Titus was left in Crete to appoint elders and combat false teachers; the letter especially emphasizes that good works should flow from what?", answer: "God's grace", accepted: ["Grace"] },
 
   // ---------------- Revelation & Famous Verses ----------------
   { id: 88, category: "Revelation & Famous Verses", prompt: "John wrote Revelation while exiled on what island?", answer: "Patmos" },
