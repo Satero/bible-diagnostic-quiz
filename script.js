@@ -215,7 +215,6 @@
     app.innerHTML = `
       <div class="progress-bar"><div class="progress-fill" style="width:${progressPct}%"></div></div>
       <div class="question-progress">Question ${state.currentIndex + 1} of ${total}</div>
-      <span class="category-tag">${q.category}</span>
       <p class="question-text">${q.prompt}</p>
       <input type="text" id="answer-input" class="answer-input" placeholder="Type your answer&hellip;" value="${typedValue.replace(/"/g, "&quot;")}" ${state.revealed ? "disabled" : ""} autocomplete="off">
       ${revealHtml}
@@ -251,19 +250,42 @@
       })
       .join("");
 
-    const reviewHtml = state.quizQuestions
-      .map((q, i) => {
-        const isCorrect = state.grades[i] === "correct";
-        const userText = state.userInputs[i] && state.userInputs[i].trim() ? state.userInputs[i] : "(left blank)";
-        return `
-          <div class="review-item">
-            <div class="review-question">${i + 1}. ${q.prompt}</div>
-            <div class="review-answer ${isCorrect ? "correct" : "incorrect"}">Your answer: ${userText}</div>
-            <div class="review-answer correct">Accepted answer: ${q.answer}</div>
-          </div>
-        `;
-      })
-      .join("");
+    const categoryOrder = [];
+    state.quizQuestions.forEach((q) => {
+      if (!categoryOrder.includes(q.category)) categoryOrder.push(q.category);
+    });
+
+    function reviewItemHtml(q, i) {
+      const isCorrect = state.grades[i] === "correct";
+      const userText = state.userInputs[i] && state.userInputs[i].trim() ? state.userInputs[i] : "(left blank)";
+      return `
+        <div class="review-item">
+          <div class="review-question">${q.prompt}</div>
+          <div class="review-answer ${isCorrect ? "correct" : "incorrect"}">Your answer: ${userText}</div>
+          <div class="review-answer correct">Accepted answer: ${q.answer}</div>
+        </div>
+      `;
+    }
+
+    function reviewGroupHtml(matchesBucket) {
+      return categoryOrder
+        .map((cat) => {
+          const items = state.quizQuestions
+            .map((q, i) => ({ q, i }))
+            .filter(({ q, i }) => q.category === cat && matchesBucket(i));
+          if (!items.length) return "";
+          return `
+            <details class="review-subgroup">
+              <summary>${cat} (${items.length})</summary>
+              ${items.map(({ q, i }) => reviewItemHtml(q, i)).join("")}
+            </details>
+          `;
+        })
+        .join("");
+    }
+
+    const correctHtml = reviewGroupHtml((i) => state.grades[i] === "correct");
+    const incorrectHtml = reviewGroupHtml((i) => state.grades[i] !== "correct");
 
     app.innerHTML = `
       <h1>Results</h1>
@@ -280,7 +302,14 @@
       </div>
       <div class="card">
         <h2>Review</h2>
-        ${reviewHtml}
+        <details class="review-group">
+          <summary>Correct Answers (${result.correct})</summary>
+          ${correctHtml}
+        </details>
+        <details class="review-group">
+          <summary>Incorrect Answers (${result.total - result.correct})</summary>
+          ${incorrectHtml}
+        </details>
       </div>
     `;
 

@@ -14,7 +14,7 @@ const QUESTIONS = [
   { id: 2, category: "Pentateuch", prompt: "What sign did God give Noah as a covenant promise never to flood the whole earth again?", answer: "The rainbow" },
   { id: 3, category: "Pentateuch", prompt: "God changed Abram's name to Abraham as part of a covenant promising he would become the father of what?", answer: "A multitude of nations", accepted: ["Many nations"] },
   { id: 4, category: "Pentateuch", prompt: "Which of Jacob's sons was sold into slavery by his brothers and later rose to power in Egypt?", answer: "Joseph" },
-  { id: 5, category: "Pentateuch", prompt: "Through whom did God deliver Israel from slavery in Egypt, confronting Pharaoh with the plagues?", answer: "Moses", accepted: ["Moses and Aaron"] },
+  { id: 5, category: "Pentateuch", prompt: "The ten plagues on Egypt are recorded across what range of chapters in Exodus?", answer: "Exodus 7-12", accepted: ["Exodus chapters 7-12", "7-12"] },
   { id: 6, category: "Pentateuch", prompt: "The Ten Commandments are found in what book and chapter of the Bible?", answer: "Exodus 20", accepted: ["Exodus chapter 20"] },
   { id: 7, category: "Pentateuch", prompt: "Which book of the Pentateuch is devoted mainly to laws on holiness, sacrifice, and worship for Israel?", answer: "Leviticus" },
   { id: 8, category: "Pentateuch", prompt: "Israel wandered in the wilderness for 40 years largely because of their unbelief after the report of the twelve ___.", answer: "Spies" },
@@ -26,7 +26,7 @@ const QUESTIONS = [
   // ---------------- Historical Books (Joshua–Esther) ----------------
   { id: 13, category: "Historical Books", prompt: "In Joshua 6, the Israelites conquer what fortified city after marching around it for seven days and blowing trumpets?", answer: "Jericho" },
   { id: 14, category: "Historical Books", prompt: "The book of Judges describes a repeating cycle of Israel's sin, oppression, crying out to God, and ___ by a judge.", answer: "Deliverance", accepted: ["Rescue"] },
-  { id: 15, category: "Historical Books", prompt: "Ruth, a Moabite widow, became an ancestor of which future king of Israel?", answer: "David" },
+  { id: 15, category: "Historical Books", prompt: "What is the book of Ruth about?", answer: "A Moabite widow, Ruth, stays loyal to her mother-in-law Naomi, gleans in the fields of Boaz, and marries him as a kinsman-redeemer, becoming an ancestor of David", accepted: ["Ruth's loyalty to Naomi and marriage to Boaz, becoming David's ancestor"] },
   { id: 16, category: "Historical Books", prompt: "Who was Israel's first king, anointed by the prophet Samuel?", answer: "Saul" },
   { id: 17, category: "Historical Books", prompt: "David became famous for defeating which Philistine giant in single combat?", answer: "Goliath" },
   { id: 18, category: "Historical Books", prompt: "Which king, known for God-given wisdom, built the first temple in Jerusalem?", answer: "Solomon" },
@@ -61,25 +61,25 @@ const QUESTIONS = [
   { id: 43, category: "Prophets", prompt: "The book of Hosea uses the prophet's own troubled marriage as a picture of what?", answer: "Israel's unfaithfulness to God", accepted: ["Israel's idolatry", "Spiritual unfaithfulness"] },
   { id: 44, category: "Prophets", prompt: "Joel's prophecy about a locust plague ultimately points forward to a future outpouring of what?", answer: "God's Spirit", accepted: ["The Holy Spirit"] },
   { id: 45, category: "Prophets", prompt: "Amos, prophesying to the northern kingdom, placed strong emphasis on what theme?", answer: "Social justice/righteousness", accepted: ["Justice"] },
-  { id: 46, category: "Prophets", prompt: "Jonah tried to flee from God's call to preach to which city?", answer: "Nineveh" },
+  { id: 46, category: "Prophets", prompt: "What are the central events/themes of the book of Jonah?", answer: "Jonah flees God's call to preach to Nineveh, is swallowed by a great fish for three days, is spit out and finally preaches, the Ninevites repent, and Jonah becomes angry at God's mercy toward his enemies", accepted: ["Jonah flees to Nineveh, swallowed by a fish, Nineveh repents, Jonah is angry at God's mercy"] },
   { id: 47, category: "Prophets", prompt: "Micah 6:8 — 'He has told you, O man, what is good... to do justice, to love kindness, and to ___.'", answer: "Walk humbly with your God", accepted: ["Walk humbly"] },
   { id: 48, category: "Prophets", prompt: "Habakkuk 2:4 states that 'the righteous shall live by his ___' — a line later quoted three times in the New Testament (Romans, Galatians, Hebrews).", answer: "Faith" },
   { id: 49, category: "Prophets", prompt: "Malachi 3:8 accuses the people of robbing God by failing to bring their full ___ and offerings.", answer: "Tithes", accepted: ["Tithe"] },
 
   // ---------------- Gospels (Matthew–John) ----------------
   { id: 50, category: "Gospels", prompt: "Which Gospel was written especially to show Jesus as the fulfillment of Jewish prophecy and the promised Messiah/King?", answer: "Matthew" },
-  { id: 51, category: "Gospels", prompt: "The Sermon on the Mount, including the Beatitudes, is recorded in which Gospel?", answer: "Matthew" },
+  { id: 51, category: "Gospels", prompt: "The Sermon on the Mount, including the Beatitudes, spans what range of chapters in Matthew?", answer: "Matthew 5-7", accepted: ["Matthew chapters 5-7", "5-7"] },
   { id: 52, category: "Gospels", prompt: "Which Gospel is known for its fast pace and its portrayal of Jesus as a suffering servant who acts decisively?", answer: "Mark" },
   { id: 53, category: "Gospels", prompt: "Which Gospel places special emphasis on Jesus' compassion toward the poor, outcasts, women, and sinners?", answer: "Luke" },
   { id: 54, category: "Gospels", prompt: "The parable of the Prodigal Son is found in which Gospel?", answer: "Luke" },
   { id: 55, category: "Gospels", prompt: "Which Gospel focuses heavily on Jesus' divine identity through 'I am' statements and signs, differing from the other three?", answer: "John" },
   { id: 56, category: "Gospels", prompt: "'For God so loved the world, that he gave his only Son...' is found in what book and chapter?", answer: "John 3" },
-  { id: 57, category: "Gospels", prompt: "At Jesus' baptism, what descended on him as the Father's voice spoke from heaven?", answer: "The Holy Spirit, like a dove", accepted: ["A dove", "The Spirit"] },
+  { id: 57, category: "Gospels", prompt: "Jesus' baptism, where the Holy Spirit descends like a dove and the Father's voice speaks from heaven, is recorded in what book and chapter? (any Gospel that records it counts)", answer: "Matthew 3", accepted: ["Mark 1", "Luke 3"] },
   { id: 58, category: "Gospels", prompt: "Jesus' first recorded miracle — turning water into wine at Cana — is found in what book and chapter?", answer: "John 2" },
   { id: 59, category: "Gospels", prompt: "The Last Supper took place during which Jewish feast?", answer: "Passover" },
   { id: 60, category: "Gospels", prompt: "Who betrayed Jesus to the religious authorities, and for how many pieces of silver?", answer: "Judas Iscariot, thirty pieces of silver", accepted: ["Judas", "30 pieces of silver"] },
   { id: 61, category: "Gospels", prompt: "According to all four Gospels, Jesus rose from the dead on which day after the crucifixion?", answer: "The third day" },
-  { id: 62, category: "Gospels", prompt: "The Great Commission ('go and make disciples of all nations') closes out which Gospel?", answer: "Matthew" },
+  { id: 62, category: "Gospels", prompt: "The Great Commission ('go and make disciples of all nations') is found in what book and chapter?", answer: "Matthew 28" },
 
   // ---------------- Acts & Early Church ----------------
   { id: 63, category: "Acts & Early Church", prompt: "The book of Acts, written by the author of Luke's Gospel, narrates the spread of the early church through the power of what?", answer: "The Holy Spirit" },
@@ -93,7 +93,7 @@ const QUESTIONS = [
   { id: 71, category: "Acts & Early Church", prompt: "The book of Acts ends with Paul under house arrest in what city, still preaching?", answer: "Rome" },
   { id: 72, category: "Acts & Early Church", prompt: "Who vouched for Paul to the suspicious Jerusalem church and partnered with him in early missionary work?", answer: "Barnabas" },
   { id: 73, category: "Acts & Early Church", prompt: "The early Jerusalem believers were noted for sharing possessions, fellowship, prayer, and what apostolic activity?", answer: "The apostles' teaching", accepted: ["Teaching"] },
-  { id: 74, category: "Acts & Early Church", prompt: "According to Acts 11, believers were first called 'Christians' in which city?", answer: "Antioch" },
+  { id: 74, category: "Acts & Early Church", prompt: "Believers were first called 'Christians' in Antioch — what book and chapter records this?", answer: "Acts 11" },
 
   // ---------------- Epistles (Romans–Jude) ----------------
   { id: 75, category: "Epistles", prompt: "Which of Paul's letters is often seen as his most systematic explanation of the gospel — sin, justification by faith, and salvation?", answer: "Romans" },
@@ -121,10 +121,10 @@ const QUESTIONS = [
   { id: 93, category: "Revelation & Famous Verses", prompt: "'And we know that for those who love God all things work together for good' is found in what book and chapter?", answer: "Romans 8" },
   { id: 94, category: "Revelation & Famous Verses", prompt: "Jesus' summary of the Law — love God, and love your neighbor as yourself — is recorded in what book and chapter?", answer: "Matthew 22" },
   { id: 95, category: "Revelation & Famous Verses", prompt: "'This is the day that the LORD has made; let us rejoice and be glad in it' is found in what book and chapter?", answer: "Psalm 118" },
-  { id: 96, category: "Revelation & Famous Verses", prompt: "'Put on the whole armor of God, that you may be able to stand against the schemes of the devil' is found in what book and chapter?", answer: "Ephesians 6" },
+  { id: 96, category: "Revelation & Famous Verses", prompt: "'Put on the whole armor of God, that you may be able to stand against the schemes of the devil' — give the verse reference.", answer: "Ephesians 6:11" },
   { id: 97, category: "Revelation & Famous Verses", prompt: "'Come to me, all who labor and are heavy laden, and I will give you rest' is found in what book and chapter?", answer: "Matthew 11" },
   { id: 98, category: "Revelation & Famous Verses", prompt: "The shortest verse in the Bible (just two words in English) — what does it say, and what book and chapter is it in?", answer: "'Jesus wept' — John 11", accepted: ["Jesus wept, John 11"] },
-  { id: 99, category: "Revelation & Famous Verses", prompt: "'They who wait for the LORD shall renew their strength; they shall mount up with wings like eagles' is found in what book and chapter?", answer: "Isaiah 40" },
+  { id: 99, category: "Revelation & Famous Verses", prompt: "'They who wait for the LORD shall renew their strength; they shall mount up with wings like eagles' — give the verse reference.", answer: "Isaiah 40:31" },
   { id: 100, category: "Revelation & Famous Verses", prompt: "'Your word is a lamp to my feet and a light to my path' is found in what book and chapter?", answer: "Psalm 119" },
 
 ];
