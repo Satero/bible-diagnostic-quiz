@@ -11,7 +11,7 @@ const QUESTIONS = [
 
   // ---------------- Pentateuch (Genesis–Deuteronomy) ----------------
   { id: 1, category: "Pentateuch", prompt: "According to Genesis 1, land animals and humans were created on which day of creation?", answer: "Day 6", accepted: ["The sixth day", "6"] },
-  { id: 2, category: "Pentateuch", prompt: "What sign did God give Noah as a covenant promise never to flood the whole earth again?", answer: "The rainbow" },
+  { id: 2, category: "Pentateuch", prompt: "In what book and chapter did God call Abram to go from his country to the land God would show him?", answer: "Genesis 12" },
   { id: 3, category: "Pentateuch", prompt: "God changed Abram's name to Abraham as part of a covenant promising he would become the father of what?", answer: "A multitude of nations", accepted: ["Many nations"] },
   { id: 4, category: "Pentateuch", prompt: "Which of Jacob's sons was sold into slavery by his brothers and later rose to power in Egypt?", answer: "Joseph" },
   { id: 5, category: "Pentateuch", prompt: "The ten plagues on Egypt are recorded across what range of chapters in Exodus?", answer: "Exodus 7-12", accepted: ["Exodus chapters 7-12", "7-12"] },
@@ -25,7 +25,7 @@ const QUESTIONS = [
   { id: 103, category: "Pentateuch", prompt: "Name the twelve tribes of Israel (the twelve sons of Jacob).", answer: "Reuben, Simeon, Levi, Judah, Dan, Naphtali, Gad, Asher, Issachar, Zebulun, Joseph, Benjamin", accepted: ["Some lists drop Levi (no land inheritance) and split Joseph into his two sons, Ephraim and Manasseh, since those became the tribes that received territory"] },
 
   // ---------------- Historical Books (Joshua–Esther) ----------------
-  { id: 13, category: "Historical Books", prompt: "In Joshua 6, the Israelites conquer what fortified city after marching around it for seven days and blowing trumpets?", answer: "Jericho" },
+  { id: 13, category: "Historical Books", prompt: "What are some of the main themes/events in the book of Joshua?", answer: "Israel crosses the Jordan into Canaan, conquers Jericho and other cities (sparing Rahab, judging Achan's sin at Ai), divides the land among the twelve tribes, and Joshua renews the covenant at Shechem ('choose this day whom you will serve')", accepted: ["Conquest of Canaan (Jericho, Ai), division of the land among the tribes, covenant renewal at Shechem"] },
   { id: 14, category: "Historical Books", prompt: "The book of Judges describes a repeating cycle of Israel's sin, oppression, crying out to God, and ___ by a judge.", answer: "Deliverance", accepted: ["Rescue"] },
   { id: 15, category: "Historical Books", prompt: "What is the book of Ruth about?", answer: "A Moabite widow, Ruth, stays loyal to her mother-in-law Naomi, gleans in the fields of Boaz, and marries him as a kinsman-redeemer, becoming an ancestor of David", accepted: ["Ruth's loyalty to Naomi and marriage to Boaz, becoming David's ancestor"] },
   { id: 16, category: "Historical Books", prompt: "Who was Israel's first king, anointed by the prophet Samuel?", answer: "Saul" },
@@ -44,7 +44,7 @@ const QUESTIONS = [
   { id: 27, category: "Wisdom & Poetry", prompt: "What book of the Bible is a collection of songs and prayers of praise, lament, and trust in God?", answer: "Psalms" },
   { id: 28, category: "Wisdom & Poetry", prompt: "'The LORD is my shepherd; I shall not want' is the opening line of which Psalm?", answer: "Psalm 23" },
   { id: 29, category: "Wisdom & Poetry", prompt: "Proverbs, a book of practical wisdom for godly living, is largely attributed to which king?", answer: "Solomon" },
-  { id: 30, category: "Wisdom & Poetry", prompt: "'Trust in the LORD with all your heart, and do not lean on your own understanding... he will make straight your paths' — what book and chapter is this from?", answer: "Proverbs 3" },
+  { id: 30, category: "Wisdom & Poetry", prompt: "'Trust in the LORD with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths.' — what book and chapter is this from?", answer: "Proverbs 3" },
   { id: 31, category: "Wisdom & Poetry", prompt: "Which book repeats the refrain 'Vanity of vanities... all is vanity,' teaching that life is fleeting without God?", answer: "Ecclesiastes" },
   { id: 32, category: "Wisdom & Poetry", prompt: "Song of Solomon (Song of Songs) is a poetic book centered on what theme?", answer: "Romantic/marital love", accepted: ["Love"] },
   { id: 33, category: "Wisdom & Poetry", prompt: "'Have mercy on me, O God, according to your steadfast love' opens which Psalm, traditionally linked to David's repentance after his sin with Bathsheba?", answer: "Psalm 51" },
@@ -58,7 +58,7 @@ const QUESTIONS = [
   { id: 39, category: "Prophets", prompt: "'For I know the plans I have for you... plans to give you a future and a hope' — what book and chapter is this from?", answer: "Jeremiah 29" },
   { id: 40, category: "Prophets", prompt: "Lamentations mourns the destruction of what city?", answer: "Jerusalem" },
   { id: 41, category: "Prophets", prompt: "Ezekiel's visions, including the valley of dry bones, were addressed to Israelites experiencing what?", answer: "Exile in Babylon", accepted: ["The Babylonian exile", "Exile"] },
-  { id: 42, category: "Prophets", prompt: "Daniel is best known for surviving a night in a den of ___.", answer: "Lions" },
+  { id: 42, category: "Prophets", prompt: "What are some of the main themes/events in the book of Daniel?", answer: "Daniel and his friends remain faithful to God while exiled in Babylon — refusing the king's food, surviving the fiery furnace (Shadrach, Meshach, and Abednego) and the lions' den, interpreting Nebuchadnezzar's dreams and the handwriting on the wall, and receiving apocalyptic visions of future kingdoms and the end times", accepted: ["Faithfulness in exile, fiery furnace, lions' den, interpreting dreams/the handwriting on the wall, apocalyptic visions"] },
   { id: 43, category: "Prophets", prompt: "The book of Hosea uses the prophet's own troubled marriage as a picture of what?", answer: "Israel's unfaithfulness to God", accepted: ["Israel's idolatry", "Spiritual unfaithfulness"] },
   { id: 44, category: "Prophets", prompt: "Joel's prophecy about a locust plague ultimately points forward to a future outpouring of what?", answer: "God's Spirit", accepted: ["The Holy Spirit"] },
   { id: 45, category: "Prophets", prompt: "Amos, prophesying to the northern kingdom, placed strong emphasis on what theme?", answer: "Social justice/righteousness", accepted: ["Justice"] },
@@ -74,7 +74,7 @@ const QUESTIONS = [
   { id: 53, category: "Gospels", prompt: "Which Gospel places special emphasis on Jesus' compassion toward the poor, outcasts, women, and sinners?", answer: "Luke" },
   { id: 54, category: "Gospels", prompt: "The parable of the Prodigal Son is found in which Gospel?", answer: "Luke" },
   { id: 55, category: "Gospels", prompt: "Which Gospel focuses heavily on Jesus' divine identity through 'I am' statements and signs, differing from the other three?", answer: "John" },
-  { id: 56, category: "Gospels", prompt: "'For God so loved the world, that he gave his only Son...' is found in what book and chapter?", answer: "John 3" },
+  { id: 56, category: "Gospels", prompt: "'I am the way, and the truth, and the life. No one comes to the Father except through me.' is found in what book and chapter?", answer: "John 14" },
   { id: 57, category: "Gospels", prompt: "Jesus' baptism, where the Holy Spirit descends like a dove and the Father's voice speaks from heaven, is recorded in what book and chapter? (any Gospel that records it counts)", answer: "Matthew 3", accepted: ["Mark 1", "Luke 3"] },
   { id: 58, category: "Gospels", prompt: "Jesus' first recorded miracle — turning water into wine at Cana — is found in what book and chapter?", answer: "John 2" },
   { id: 59, category: "Gospels", prompt: "The Last Supper took place during which Jewish feast?", answer: "Passover" },
@@ -99,7 +99,7 @@ const QUESTIONS = [
 
   // ---------------- Epistles (Romans–Jude) ----------------
   { id: 75, category: "Epistles", prompt: "Which of Paul's letters is often seen as his most systematic explanation of the gospel — sin, justification by faith, and salvation?", answer: "Romans" },
-  { id: 76, category: "Epistles", prompt: "'For all have sinned and fall short of the glory of God' is found in what book and chapter?", answer: "Romans 3" },
+  { id: 76, category: "Epistles", prompt: "'For all have sinned and fall short of the glory of God' — give the verse reference.", answer: "Romans 3:23" },
   { id: 77, category: "Epistles", prompt: "The 'love chapter,' often read at weddings, is found in which letter and chapter?", answer: "1 Corinthians 13", accepted: ["First Corinthians 13"] },
   { id: 78, category: "Epistles", prompt: "Galatians is Paul's strongest defense that believers are justified by faith rather than by what?", answer: "Works of the law", accepted: ["The law", "Works"] },
   { id: 79, category: "Epistles", prompt: "Ephesians describes the church using what image, united under one head?", answer: "The body of Christ", accepted: ["A body"] },
@@ -115,7 +115,7 @@ const QUESTIONS = [
   { id: 102, category: "Epistles", prompt: "Titus was left in Crete to appoint elders and combat false teachers; the letter especially emphasizes that good works should flow from what?", answer: "God's grace", accepted: ["Grace"] },
 
   // ---------------- Revelation & Famous Verses ----------------
-  { id: 88, category: "Revelation & Famous Verses", prompt: "John wrote Revelation while exiled on what island?", answer: "Patmos" },
+  { id: 88, category: "Revelation & Famous Verses", prompt: "Name the seven churches of Revelation 2-3, addressed in John's opening letters.", answer: "Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, Laodicea" },
   { id: 89, category: "Revelation & Famous Verses", prompt: "Revelation opens with letters addressed to how many churches, located in what region?", answer: "Seven churches in Asia Minor", accepted: ["7 churches"] },
   { id: 90, category: "Revelation & Famous Verses", prompt: "Revelation's central hope in its closing chapters is a new heaven and new earth where God does what?", answer: "Dwells with his people", accepted: ["Lives with his people"] },
   { id: 91, category: "Revelation & Famous Verses", prompt: "'Be strong and courageous... for the LORD your God is with you wherever you go' is found in what book and chapter?", answer: "Joshua 1" },
