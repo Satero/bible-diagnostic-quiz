@@ -1,5 +1,5 @@
 // Bible Diagnostic Quiz — question bank
-// 102 free-response questions across 8 categories: book/chapter references,
+// 104 free-response questions across 8 categories: book/chapter references,
 // fill-in-the-blank recall, and famous-verse citations. Self-graded — the app
 // reveals the accepted answer (and any accepted alternate phrasings) and the
 // user marks their own typed answer correct or incorrect.
@@ -22,6 +22,7 @@ const QUESTIONS = [
   { id: 10, category: "Pentateuch", prompt: "'You shall love your neighbor as yourself' is not one of the Ten Commandments — it's actually found earlier in what book?", answer: "Leviticus", accepted: ["Leviticus 19"] },
   { id: 11, category: "Pentateuch", prompt: "'In the beginning, God created the heavens and the earth' is the opening verse of which book?", answer: "Genesis", accepted: ["Genesis 1", "Genesis 1:1"] },
   { id: 12, category: "Pentateuch", prompt: "The Passover meal instituted in Exodus 12 commemorates what event?", answer: "The final plague (death of the firstborn) and Israel's deliverance from Egypt", accepted: ["The tenth plague", "Death of the firstborn", "Israel's deliverance from Egypt"] },
+  { id: 103, category: "Pentateuch", prompt: "Name the twelve tribes of Israel (the twelve sons of Jacob).", answer: "Reuben, Simeon, Levi, Judah, Dan, Naphtali, Gad, Asher, Issachar, Zebulun, Joseph, Benjamin", accepted: ["Some lists drop Levi (no land inheritance) and split Joseph into his two sons, Ephraim and Manasseh, since those became the tribes that received territory"] },
 
   // ---------------- Historical Books (Joshua–Esther) ----------------
   { id: 13, category: "Historical Books", prompt: "In Joshua 6, the Israelites conquer what fortified city after marching around it for seven days and blowing trumpets?", answer: "Jericho" },
@@ -80,6 +81,7 @@ const QUESTIONS = [
   { id: 60, category: "Gospels", prompt: "Who betrayed Jesus to the religious authorities, and for how many pieces of silver?", answer: "Judas Iscariot, thirty pieces of silver", accepted: ["Judas", "30 pieces of silver"] },
   { id: 61, category: "Gospels", prompt: "According to all four Gospels, Jesus rose from the dead on which day after the crucifixion?", answer: "The third day" },
   { id: 62, category: "Gospels", prompt: "The Great Commission ('go and make disciples of all nations') is found in what book and chapter?", answer: "Matthew 28" },
+  { id: 104, category: "Gospels", prompt: "Name the twelve disciples (apostles) of Jesus.", answer: "Simon Peter, Andrew, James son of Zebedee, John, Philip, Bartholomew, Thomas, Matthew, James son of Alphaeus, Thaddaeus, Simon the Zealot, Judas Iscariot", accepted: ["Luke's list calls Thaddaeus 'Judas son of James' instead — traditionally the same person"] },
 
   // ---------------- Acts & Early Church ----------------
   { id: 63, category: "Acts & Early Church", prompt: "The book of Acts, written by the author of Luke's Gospel, narrates the spread of the early church through the power of what?", answer: "The Holy Spirit" },
