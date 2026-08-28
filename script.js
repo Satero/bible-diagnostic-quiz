@@ -2,12 +2,39 @@
   "use strict";
 
   const LENGTHS = [10, 20, 30, 50, 100];
-  const STORAGE_KEY = "bibleQuizLastResult";
+
+  // Each quiz type has its own question bank, its own localStorage key
+  // (so retaking one quiz doesn't clobber another's last result), and
+  // its own label for the post-quiz breakdown ("Category" for the
+  // whole-Bible bank's 8 topical categories, "Section" for a single
+  // book's narrative-arc sections in the other banks).
+  const QUIZ_TYPES = {
+    whole: {
+      label: "Whole Bible",
+      questions: QUESTIONS,
+      storageKey: "bibleQuizLastResult_whole",
+      breakdownLabel: "By Category",
+    },
+    samuel1: {
+      label: "1 Samuel",
+      questions: QUESTIONS_1SAMUEL,
+      storageKey: "bibleQuizLastResult_1samuel",
+      breakdownLabel: "By Section",
+    },
+    samuel2: {
+      label: "2 Samuel",
+      questions: QUESTIONS_2SAMUEL,
+      storageKey: "bibleQuizLastResult_2samuel",
+      breakdownLabel: "By Section",
+    },
+  };
+  const QUIZ_TYPE_ORDER = ["whole", "samuel1", "samuel2"];
 
   const app = document.getElementById("app");
 
   const state = {
     screen: "start",
+    quizType: "whole",
     selectedLength: 20,
     quizQuestions: [],
     currentIndex: 0,
@@ -36,10 +63,11 @@
 
   // Stratified proportional sampling using the largest-remainder method,
   // so short quizzes still sample across every category rather than
-  // clustering in whichever ones luck picks.
-  function sampleQuestions(n) {
-    const total = QUESTIONS.length;
-    const groups = groupByCategory(QUESTIONS);
+  // clustering in whichever ones luck picks. `questions` is whichever
+  // quiz type's bank is currently selected.
+  function sampleQuestions(questions, n) {
+    const total = questions.length;
+    const groups = groupByCategory(questions);
     const categories = Object.keys(groups);
 
     const allocations = categories.map((cat) => {
@@ -71,7 +99,7 @@
   }
 
   function startQuiz(n) {
-    state.quizQuestions = sampleQuestions(n);
+    state.quizQuestions = sampleQuestions(QUIZ_TYPES[state.quizType].questions, n);
     state.currentIndex = 0;
     state.userInputs = new Array(state.quizQuestions.length).fill("");
     state.grades = new Array(state.quizQuestions.length).fill(null);
@@ -121,7 +149,7 @@
   function finishQuiz() {
     const result = computeResult();
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(result));
+      localStorage.setItem(QUIZ_TYPES[state.quizType].storageKey, JSON.stringify(result));
     } catch (e) {
       // localStorage unavailable (private browsing, etc.) — safe to ignore
     }
@@ -134,9 +162,9 @@
     render();
   }
 
-  function loadLastResult() {
+  function loadLastResult(quizType) {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(QUIZ_TYPES[quizType].storageKey);
       return raw ? JSON.parse(raw) : null;
     } catch (e) {
       return null;
@@ -149,7 +177,11 @@
   }
 
   function renderStart() {
-    const last = loadLastResult();
+    const last = loadLastResult(state.quizType);
+    const quizTypeOptions = QUIZ_TYPE_ORDER.map(
+      (key) =>
+        `<div class="quiz-type-option${key === state.quizType ? " selected" : ""}" data-quiz-type="${key}">${QUIZ_TYPES[key].label}</div>`
+    ).join("");
     const lengthOptions = LENGTHS.map(
       (len) =>
         `<div class="length-option${len === state.selectedLength ? " selected" : ""}" data-length="${len}">${len}</div>`
@@ -157,7 +189,11 @@
 
     app.innerHTML = `
       <h1>Bible Diagnostic Quiz</h1>
-      <p>Free-response questions on the Bible's overall themes, book content, and famous verses &mdash; not multiple choice. Type your answer, reveal the accepted answer, and grade yourself. Questions are drawn proportionally across the Old and New Testaments.</p>
+      <p>Free-response questions &mdash; not multiple choice. Type your answer, reveal the accepted answer, and grade yourself. Test overall Bible themes and famous verses, or focus on a single book's story.</p>
+      <div class="card">
+        <h2>Which quiz?</h2>
+        <div class="quiz-type-grid">${quizTypeOptions}</div>
+      </div>
       <div class="card">
         <h2>How many questions?</h2>
         <div class="length-grid">${lengthOptions}</div>
@@ -165,10 +201,17 @@
       </div>
       ${
         last
-          ? `<p class="last-result">Last attempt: ${last.correct}/${last.total} on ${formatDate(last.date)}</p>`
+          ? `<p class="last-result">Last attempt (${QUIZ_TYPES[state.quizType].label}): ${last.correct}/${last.total} on ${formatDate(last.date)}</p>`
           : ""
       }
     `;
+
+    app.querySelectorAll(".quiz-type-option").forEach((el) => {
+      el.addEventListener("click", () => {
+        state.quizType = el.dataset.quizType;
+        render();
+      });
+    });
 
     app.querySelectorAll(".length-option").forEach((el) => {
       el.addEventListener("click", () => {
@@ -294,7 +337,7 @@
         <div class="score-label">${pct}% correct (self-graded)</div>
       </div>
       <div class="card">
-        <h2>By Category</h2>
+        <h2>${QUIZ_TYPES[state.quizType].breakdownLabel}</h2>
         ${breakdownHtml}
       </div>
       <div class="result-actions">
