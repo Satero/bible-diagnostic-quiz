@@ -27,8 +27,14 @@
       storageKey: "bibleQuizLastResult_2samuel",
       breakdownLabel: "By Section",
     },
+    matthew: {
+      label: "Matthew",
+      questions: QUESTIONS_MATTHEW,
+      storageKey: "bibleQuizLastResult_matthew",
+      breakdownLabel: "By Section",
+    },
   };
-  const QUIZ_TYPE_ORDER = ["whole", "samuel1", "samuel2"];
+  const QUIZ_TYPE_ORDER = ["whole", "samuel1", "samuel2", "matthew"];
 
   const app = document.getElementById("app");
 

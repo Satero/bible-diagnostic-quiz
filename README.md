@@ -6,10 +6,11 @@ No backend, no build step, no dependencies. Just HTML, CSS, and vanilla JS.
 
 ## How it works
 
-- Three quiz banks to choose from, each its own file:
+- Four quiz banks to choose from, each its own file:
   - `questions.js` &mdash; **Whole Bible**, 104 questions across 8 topical categories: Pentateuch, Historical Books, Wisdom & Poetry, Prophets, Gospels, Acts & Early Church, Epistles, and Revelation & Famous Verses.
   - `questions-1samuel.js` &mdash; **1 Samuel**, 100 questions across 7 sections following the book's narrative arc, from Samuel's birth to Saul's death.
   - `questions-2samuel.js` &mdash; **2 Samuel**, 100 questions across 6 sections following the book's narrative arc, from David's rise to the throne through his later reign.
+  - `questions-matthew.js` &mdash; **Matthew**, 100 questions across 8 sections following the book's narrative arc, from the genealogy and birth through the resurrection and Great Commission.
 - When you start a quiz, questions are sampled **proportionally across all categories/sections** in that bank (not purely at random), so even a 10-question quiz gives a meaningful breakdown rather than random luck.
 - **Grading is self-graded, like a flashcard.** You type your answer, click "Check Answer" to reveal the accepted answer (plus any accepted alternate phrasings), and then mark yourself right or wrong. This avoids the problem of a computer trying to auto-parse every valid way to phrase something like "1 Kings and 2 Kings" &mdash; you're the judge.
 - Each quiz remembers its own last result independently in your browser's `localStorage`, so retaking one doesn't overwrite another's. This is per-device/per-browser only &mdash; there are no accounts and nothing is synced anywhere.
